@@ -10,6 +10,7 @@
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         android:background="@drawable/header_bg"
         android:orientation="vertical">
 
@@ -111,6 +112,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:background="@drawable/custom_edit"
+        android:padding="20dp"
+        android:textSize="16sp"
         android:drawableEnd="@drawable/ic_next"
         android:layout_centerVertical="true"
         android:textColor="@color/white"

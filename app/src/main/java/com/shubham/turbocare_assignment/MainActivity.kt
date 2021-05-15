@@ -1,9 +1,9 @@
 package com.shubham.turbocare_assignment
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.WindowManager
+import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,44 +13,53 @@ class MainActivity : AppCompatActivity() {
     private lateinit var title:TextView
     private lateinit var registrationNo: EditText
     private lateinit var nextbutton:Button
-    private lateinit var radioButton1: RadioButton
-    private lateinit var radioButton2: RadioButton
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var dataselected:String
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        supportActionBar?.hide()
+//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
 
-        val actionBar = supportActionBar
-        actionBar!!.hide()
 
         title = findViewById(R.id.title)
         registrationNo = findViewById(R.id.edit_text_vehicle)
         title.text = (getString(R.string.create_profile))
         nextbutton = findViewById(R.id.next)
-        radioButton1 = findViewById(R.id.two_wheeler)
-        radioButton2 = findViewById(R.id.four_wheeler)
+        radioGroup = findViewById(R.id.radio_group)
 
 
+        //Storing the data from the radio button
+        radioGroup.setOnCheckedChangeListener { rGroup, checkedId ->
+            val radioButtonID = radioGroup.checkedRadioButtonId
+            val radioButton = radioGroup.findViewById<View>(radioButtonID)
+            val idx = radioGroup.indexOfChild(radioButton)
+            val r = radioGroup.getChildAt(idx) as RadioButton
+            val selectedText = r.text.toString()
+            if(selectedText == "2 WHEELER"){
+                dataselected = "2w"
+            }else{
+                dataselected = "4w"
+            }
+        }
 
 
         nextbutton.setOnClickListener {
 
-            if(noErrors()){
-                if(radioButton1.isChecked() && radioButton2.isChecked()){
-                    intent = Intent(applicationContext, SelectVehicleMake::class.java)
-                    startActivity(intent)
-                }
-                else{
-                    Toast.makeText( this,"Please Select 2 or 4 Wheeler",Toast.LENGTH_SHORT).show()
-                }
+                if(noErrors()) {
+                    val id: Int = radioGroup.checkedRadioButtonId
+                    if (id != -1) {
+                        intent = Intent(applicationContext, SelectVehicleMake::class.java)
+                        intent.putExtra("vehicle_type",dataselected)
+                        startActivity(intent)
+                    }
+                    else Toast.makeText(applicationContext, "Please Select 2 or 4 Wheeler ", android.widget.Toast.LENGTH_SHORT).show()
 
-
-            }
+                }
         }
-
 
 
 
@@ -72,8 +81,6 @@ class MainActivity : AppCompatActivity() {
         else{
             noError++
         }
-
-
 
         return noError == 1
     }
