@@ -64,6 +64,7 @@
         />
 
     <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_below="@+id/edit_text_vehicle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,18 +73,19 @@
         android:layout_centerHorizontal="true">
 
         <RadioButton
+            android:id="@+id/two_wheeler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:button="@android:color/white"
             android:background="@drawable/custom_radio"
             android:textColor="@drawable/radio_text"
             android:fontFamily="@font/poppins_semibold"
-            android:elevation="4dp"
             android:stateListAnimator="@null"
             android:text="@string/_2_wheeler"
             android:padding="16dp"
             />
         <RadioButton
+            android:id="@+id/four_wheeler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_4_wheeler"
@@ -93,7 +95,6 @@
             android:background="@drawable/custom_radio"
             android:textColor="@drawable/radio_text"
             android:stateListAnimator="@null"
-            android:elevation="4dp"
             android:padding="16dp"
             />
 
@@ -103,11 +104,12 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/custom_edit"
         android:drawableEnd="@drawable/ic_next"
         android:layout_centerVertical="true"

@@ -2,7 +2,7 @@
     <string name="app_name">TurboCare-assignment</string>
     <string name="back">back</string>
     <string name="enter_vehicle_number">Enter Vehicle Number</string>
-    <string name="eg_mh12ab1234">Eg: MH12AB1234</string>
+    <string name="eg_mh12ab1234">Eg: MH 12 AB 1234</string>
     <string name="create_profile">Create New Vehicle Profile</string>
     <string name="next">Next</string>
     <string name="_4_wheeler">4 WHEELER</string>

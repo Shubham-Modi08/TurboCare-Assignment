@@ -24,12 +24,11 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //hide the status bar
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        supportActionBar?.hide()
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash_screen)
 
 
-        val actionBar = supportActionBar
-        actionBar!!.hide()
 
         //animations
 
@@ -45,10 +44,14 @@ class SplashScreen : AppCompatActivity() {
         title.animation = bottomAnimation
 
 
-        Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+
+        Handler().postDelayed({ run{
+
+            val i = Intent(this@SplashScreen,
+                MainActivity::class.java)
+            startActivity(i)
             finish()
-        },SPLASH_SCREEN_TIME_OUT.toLong())
+
+        } },2500)
     }
 }
