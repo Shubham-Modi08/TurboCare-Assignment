@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var back: ImageView
     private lateinit var title:TextView
     private lateinit var registrationNo: EditText
     private lateinit var nextbutton:Button
@@ -25,12 +26,18 @@ class MainActivity : AppCompatActivity() {
 //        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
 
-
+        back= findViewById((R.id.back))
         title = findViewById(R.id.title)
         registrationNo = findViewById(R.id.edit_text_vehicle)
         title.text = (getString(R.string.create_profile))
         nextbutton = findViewById(R.id.next)
         radioGroup = findViewById(R.id.radio_group)
+
+
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
 
         //Storing the data from the radio button

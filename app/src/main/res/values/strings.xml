@@ -9,4 +9,7 @@
     <string name="_4_wheeler">4 WHEELER</string>
     <string name="_2_wheeler">2 WHEELER</string>
     <string name="vehicle_make">Select Vehicle Maker</string>
+    <string name="vehicle_model">Select Vehicle Model</string>
+    <string name="vehicle_list">Vehicle List</string>
+    <string name="add_vehicle">Add Vehicle</string>
 </resources>

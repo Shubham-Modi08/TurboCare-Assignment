@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
 
-class SelectVehicleMake : AppCompatActivity() {
+class SelectVehicleMake : AppCompatActivity(), VmAdapter.MyOnClickListener {
 
     private lateinit var title: TextView
     private lateinit var back: ImageView
@@ -22,6 +23,7 @@ class SelectVehicleMake : AppCompatActivity() {
     private lateinit var vehicleregno:String
     private lateinit var rcv: RecyclerView
     private lateinit var VmAdapter: VmAdapter
+    private var list: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +46,11 @@ class SelectVehicleMake : AppCompatActivity() {
     }
 
 
+
+
     private fun getData() {
 
-        val list: ArrayList<String> = ArrayList()
+
         val url = getString(R.string.base_url)+"makes?class="+type_selected
         val requestQueue = Volley.newRequestQueue(this)
         val request = JsonArrayRequest(Request.Method.GET, url,null,
@@ -66,7 +70,14 @@ class SelectVehicleMake : AppCompatActivity() {
     }
 
     private fun initView() {
-        rcv = findViewById(R.id.recycler_view)
+        rcv = findViewById(R.id.recycler_view_make)
+    }
+
+    override fun OnClick(position: Int) {
+        intent = Intent(applicationContext, SelectVehicleModel::class.java)
+        intent.putExtra("vehicle_type", type_selected)
+        intent.putExtra("vehicle_make", list[position])
+        startActivity(intent)
     }
 
 }

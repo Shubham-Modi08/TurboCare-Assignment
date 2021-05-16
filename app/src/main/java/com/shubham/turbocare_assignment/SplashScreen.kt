@@ -48,7 +48,7 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed({ run{
 
             val i = Intent(this@SplashScreen,
-                MainActivity::class.java)
+                VehicleList::class.java)
             startActivity(i)
             finish()
 
