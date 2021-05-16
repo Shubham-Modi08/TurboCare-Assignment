@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TurboCareassignment">
-        <activity android:name=".SelectVehicleMake"></activity>
+        <activity android:name=".SelectVehicleModel"></activity>
+        <activity android:name=".SelectVehicleMake" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>

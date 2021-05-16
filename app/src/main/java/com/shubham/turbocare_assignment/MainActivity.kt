@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextbutton:Button
     private lateinit var radioGroup: RadioGroup
     private lateinit var dataselected:String
+    private lateinit var vehicleregno:String
 
 
 
@@ -53,7 +54,9 @@ class MainActivity : AppCompatActivity() {
                     val id: Int = radioGroup.checkedRadioButtonId
                     if (id != -1) {
                         intent = Intent(applicationContext, SelectVehicleMake::class.java)
-                        intent.putExtra("vehicle_type",dataselected)
+                        vehicleregno = registrationNo.getText().toString()
+                        intent.putExtra("Registration_no", vehicleregno)
+                        intent.putExtra("vehicle_type", dataselected)
                         startActivity(intent)
                     }
                     else Toast.makeText(applicationContext, "Please Select 2 or 4 Wheeler ", android.widget.Toast.LENGTH_SHORT).show()
