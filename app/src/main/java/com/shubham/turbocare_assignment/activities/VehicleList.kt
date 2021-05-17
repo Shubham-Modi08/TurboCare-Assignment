@@ -16,8 +16,11 @@ import com.shubham.turbocare_assignment.adapters.VlAdapter
 import com.shubham.turbocare_assignment.adapters.VmAdapter
 import com.shubham.turbocare_assignment.database.VehicleDatabase
 import com.shubham.turbocare_assignment.database.VehicleEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
-class VehicleList : AppCompatActivity() {
+class VehicleList : AppCompatActivity(),VlAdapter.MyOnClickListener {
 
 
     private lateinit var title: TextView
@@ -42,12 +45,26 @@ class VehicleList : AppCompatActivity() {
 
         }
 
-        val result = DBASyncTask(this,1).execute().get()
-        Log.d("result", result.toString())
-        //VlAdapter = VlAdapter(,this)
+//        val list = ArrayList<VehicleEntity>()
+        CoroutineScope(IO).launch {
+
+
+            val db = Room.databaseBuilder(this@VehicleList, VehicleDatabase::class.java,"vehicle_details-db").build()
+
+            val vehicleEntity:List<VehicleEntity>? = db.getVehicleDao().getMyVehicles()
+            Log.d("data1", vehicleEntity?.get(0).toString())
+            db.close()
+            vehicleEntity?.forEach {
+                list.add(it)
+            }
+            Log.d("list",list.toString())
+
+
+        }
+
+        VlAdapter = VlAdapter(list,this)
         rcv.layoutManager = LinearLayoutManager(this)
         rcv.adapter = VlAdapter
-
 
 
     }
@@ -56,32 +73,16 @@ class VehicleList : AppCompatActivity() {
         rcv = findViewById(R.id.recycler_my_vehicle)
     }
 
-    private fun vehicleList(vehicle : ArrayList<VehicleEntity>){
-        list = vehicle
-    }
 
-    class DBASyncTask(context: Context, private val mode:Int) : AsyncTask<Void, Void, Boolean>(){
 
-        val list = ArrayList<VehicleEntity>()
-
-        private val db = Room.databaseBuilder(context, VehicleDatabase::class.java,"vehicle_details-db").build()
-
-        override fun doInBackground(vararg params: Void?): Boolean {
-
-            return when(mode){
-                1 -> {
-                    val vehicleEntity:List<VehicleEntity>? = db.getVehicleDao().getMyVehicles()
-                    Log.d("data1", vehicleEntity?.get(0).toString())
-                    db.close()
-                    vehicleEntity?.forEach {
-                        list.add(it)
-                    }
-                    Log.d("list",list.toString())
-                    vehicleEntity != null
-                }
-                else -> false
-            }
-        }
-
+    override fun OnClick(position: Int) {
+        intent = Intent(applicationContext, VehicleDetails::class.java)
+        val item = list[position]
+        intent.putExtra("vehicle_make", item.Vehicle_make)
+        intent.putExtra("Registration_no", item.Reg_no)
+        intent.putExtra("vehicle_model", item.Vehicle_model)
+        intent.putExtra("vehicle_fuel_type", item.Vehicle_fuel_type)
+        intent.putExtra("vehicle_transmission", item.Vehicle_transmission)
+        startActivity(intent)
     }
 }

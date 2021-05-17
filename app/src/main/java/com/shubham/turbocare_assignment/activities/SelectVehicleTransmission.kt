@@ -78,15 +78,20 @@ class SelectVehicleTransmission : AppCompatActivity(),VtAdapter.MyOnClickListene
             vehicleregno,vehicle_make,vehicle_model,vehicle_fuel_type,vehicle_transmission
         )
 
-        val async = DBASyncTask(this,vehicleEntity,1).execute()
-        val result = async.get()
-        Log.d("vehicle_data",result.toString())
-        if(result)
-        {
-            Toast.makeText(applicationContext, "Vehicle Details Saved",Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(this,"Some Error Occurred",Toast.LENGTH_SHORT).show()
+        try{
+            val async = DBASyncTask(this,vehicleEntity,1).execute()
+            val result = async.get()
+            Log.d("vehicle_data",result.toString())
+            if(result)
+            {
+                Toast.makeText(applicationContext, "Vehicle Details Saved",Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this,"Some Error Occurred",Toast.LENGTH_SHORT).show()
+            }
+        }catch (e:Exception){
+            Toast.makeText(this,e.message,Toast.LENGTH_SHORT).show()
         }
+
 
         startActivity(intent)
     }
