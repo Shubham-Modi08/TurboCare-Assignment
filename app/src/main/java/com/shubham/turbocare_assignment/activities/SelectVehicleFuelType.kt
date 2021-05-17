@@ -72,9 +72,9 @@ class SelectVehicleFuelType : AppCompatActivity(), Vfadapter.MyOnClickListener{
 
         intent = Intent(applicationContext, SelectVehicleTransmission::class.java)
         intent.putExtra("vehicle_type", type_selected)
-        intent.putExtra("vehicle_make", list[position])
+        intent.putExtra("vehicle_make", vehicle_make )
         intent.putExtra("Registration_no", vehicleregno)
-        intent.putExtra("vehicle_model", list[position])
+        intent.putExtra("vehicle_model", vehicle_model)
         intent.putExtra("vehicle_fuel_type", list[position])
         Log.d("fuel",list[position])
         startActivity(intent)

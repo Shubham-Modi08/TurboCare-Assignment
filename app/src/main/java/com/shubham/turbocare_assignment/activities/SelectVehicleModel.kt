@@ -77,7 +77,7 @@ class SelectVehicleModel : AppCompatActivity(),Vmoadapter.MyOnClickListener {
 
         intent = Intent(applicationContext, SelectVehicleFuelType::class.java)
         intent.putExtra("vehicle_type", type_selected)
-        intent.putExtra("vehicle_make", list[position])
+        intent.putExtra("vehicle_make", vehicle_make)
         intent.putExtra("Registration_no", vehicleregno)
         intent.putExtra("vehicle_model", list[position])
         startActivity(intent)

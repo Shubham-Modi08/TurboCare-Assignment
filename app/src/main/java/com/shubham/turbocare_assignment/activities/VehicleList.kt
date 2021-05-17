@@ -52,7 +52,6 @@ class VehicleList : AppCompatActivity(),VlAdapter.MyOnClickListener {
             val db = Room.databaseBuilder(this@VehicleList, VehicleDatabase::class.java,"vehicle_details-db").build()
 
             val vehicleEntity:List<VehicleEntity>? = db.getVehicleDao().getMyVehicles()
-            Log.d("data1", vehicleEntity?.get(0).toString())
             db.close()
             vehicleEntity?.forEach {
                 list.add(it)

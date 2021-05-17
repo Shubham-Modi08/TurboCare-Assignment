@@ -25,7 +25,7 @@
             />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/registration_no"
             style="@style/HeaderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,24 +34,282 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/back"
             android:layout_centerHorizontal="true"
-            tools:text="Header" />
+            tools:text="MH 12 AB 1234" />
 
 
         <ImageView
-            android:id="@+id/icon_fuel"
+            android:id="@+id/ic_detail"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_fuel"
+            android:src="@drawable/ic_vehicle_detail"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_marginTop="50dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_fuel_type"
-        android:layout_below="@+id/layout_header"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
+
+<RelativeLayout
+    android:id="@+id/layout_model"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="6dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/vehicle_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MODEL"
+                android:singleLine="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="15dp" />
+
+
+            <TextView
+                android:id="@+id/model_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Model"
+                android:textAllCaps="false"
+                android:singleLine="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/vehicle_model"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:padding="15dp" />
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_model"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="6dp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/vehicle_fuel_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TYPE"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/vehicle_fuel_type"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_transmission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/layout_type"
+        android:layout_below="@+id/layout_make"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="15dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="6dp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/vehicle_transmission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRANSMISSION"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+                <TextView
+                    android:id="@+id/transmission_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/vehicle_transmission"
+
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_make"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/layout_model"
+        android:layout_marginStart="50dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="6dp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/vehicle_make"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MAKE"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+                <TextView
+                    android:id="@+id/make_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/vehicle_make"
+
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
 
 
 
