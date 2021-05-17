@@ -12,6 +12,7 @@ class VlAdapter(private val list: ArrayList<VehicleEntity>, val listener: MyOnCl
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var vehicleRegno = itemView.findViewById<TextView>(R.id.registration_no)
+        var vehicleMake = itemView.findViewById<TextView>(R.id.vehicle_make)
         var vehicleModel = itemView.findViewById<TextView>(R.id.vehicle_model)
         init {
             itemView.setOnClickListener {
@@ -33,6 +34,7 @@ class VlAdapter(private val list: ArrayList<VehicleEntity>, val listener: MyOnCl
         val item = list[position]
         holder.apply {
             vehicleRegno.text = item.Reg_no
+            vehicleMake.text = item.Vehicle_make
             vehicleModel.text = item.Vehicle_model
         }
     }

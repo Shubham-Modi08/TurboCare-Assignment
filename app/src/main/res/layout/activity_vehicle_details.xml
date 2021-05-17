@@ -46,22 +46,79 @@
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:layout_marginTop="50dp">
+
+
+    <RelativeLayout
+        android:id="@+id/layout_make"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_header">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="6dp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/vehicle_make"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MAKE"
+                    android:singleLine="true"
+                    android:fontFamily="@font/poppins_black"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+                <TextView
+                    android:id="@+id/make_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:padding="15dp" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+
 
 
 
 <RelativeLayout
     android:id="@+id/layout_model"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/layout_make">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
         app:cardCornerRadius="6dp"
@@ -79,8 +136,7 @@
                 android:layout_height="wrap_content"
                 android:text="MODEL"
                 android:singleLine="true"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="@font/poppins_black"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:padding="15dp" />
@@ -93,8 +149,7 @@
                 android:text="Model"
                 android:textAllCaps="false"
                 android:singleLine="true"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/vehicle_model"
+                android:layout_alignParentEnd="true"
                 android:fontFamily="@font/poppins_regular"
                 android:textColor="@color/black"
                 android:layout_centerVertical="true"
@@ -118,14 +173,12 @@
 
     <RelativeLayout
         android:id="@+id/layout_type"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_model"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="10dp">
+        android:layout_below="@+id/layout_model">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             app:cardCornerRadius="6dp"
@@ -143,8 +196,7 @@
                     android:layout_height="wrap_content"
                     android:text="TYPE"
                     android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins_black"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:padding="15dp" />
@@ -156,8 +208,7 @@
                     android:layout_height="wrap_content"
                     android:text="Model"
                     android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/vehicle_fuel_type"
+                    android:layout_alignParentEnd="true"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/black"
                     android:layout_centerVertical="true"
@@ -178,17 +229,16 @@
 
     </RelativeLayout>
 
+
     <RelativeLayout
         android:id="@+id/layout_transmission"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/layout_type"
-        android:layout_below="@+id/layout_make"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="15dp">
+        android:layout_below="@+id/layout_type"
+        >
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             app:cardCornerRadius="6dp"
@@ -206,8 +256,7 @@
                     android:layout_height="wrap_content"
                     android:text="TRANSMISSION"
                     android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins_black"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:padding="15dp" />
@@ -220,9 +269,7 @@
                     android:text="Model"
                     android:textAllCaps="false"
                     android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/vehicle_transmission"
-
+                    android:layout_alignParentEnd="true"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/black"
                     android:layout_centerVertical="true"
@@ -243,70 +290,10 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/layout_make"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/layout_model"
-        android:layout_marginStart="50dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            app:cardCornerRadius="6dp"
-
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:id="@+id/vehicle_make"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MAKE"
-                    android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:padding="15dp" />
-
-
-                <TextView
-                    android:id="@+id/make_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Model"
-                    android:textAllCaps="false"
-                    android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/vehicle_make"
-
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"
-                    android:textSize="18sp"
-                    android:padding="15dp" />
 
 
 
 
-            </RelativeLayout>
-
-
-
-
-        </androidx.cardview.widget.CardView>
-
-
-
-    </RelativeLayout>
-
-</RelativeLayout>
 
 
 

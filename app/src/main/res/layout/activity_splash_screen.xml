@@ -19,12 +19,13 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A Comprehensive Automobile Workshop Management Platform"
+        android:text="Providing a smart digital ecosystem to your Private Automobile Workshops with the power of AI.\n
+A one-stop total vehicle maintenance solution for your vehicle right in your hand!"
         android:fontFamily="@font/poppins_bold"
         android:layout_alignParentBottom="true"
         android:padding="15dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="80dp"
+        android:textSize="12sp"
+        android:layout_marginBottom="50dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         />

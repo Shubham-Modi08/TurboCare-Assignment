@@ -29,7 +29,7 @@ class SelectVehicleMake : AppCompatActivity(), VmAdapter.MyOnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_vehicle_make)
         vehicleregno = intent.getStringExtra("Registration_no")!!
-        Log.d("data2", type_selected)
+        type_selected = intent.getStringExtra("vehicle_type")!!
         getData()
         initView()
 
@@ -76,6 +76,7 @@ class SelectVehicleMake : AppCompatActivity(), VmAdapter.MyOnClickListener {
         intent = Intent(applicationContext, SelectVehicleModel::class.java)
         intent.putExtra("vehicle_make", list[position])
         intent.putExtra("Registration_no", vehicleregno)
+        intent.putExtra("vehicle_type", type_selected)
         startActivity(intent)
     }
 
