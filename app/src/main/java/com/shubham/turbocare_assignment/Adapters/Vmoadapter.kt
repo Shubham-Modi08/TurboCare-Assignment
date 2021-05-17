@@ -1,16 +1,17 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.shubham.turbocare_assignment.R
+import com.shubham.turbocare_assignment.SelectVehicleModel
 
-class VmAdapter(private val list: ArrayList<String>, val listener:MyOnClickListener ): RecyclerView.Adapter<VmAdapter.MyViewHolder>(){
+class Vmoadapter(private val list: ArrayList<String>, val listener: MyOnClickListener): RecyclerView.Adapter<Vmoadapter.MyViewHolder>(){
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var vehicleMake = itemView.findViewById<TextView>(R.id.vehicle_make)
+        var vehicleModel = itemView.findViewById<TextView>(R.id.vehicle_model)
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
@@ -20,16 +21,8 @@ class VmAdapter(private val list: ArrayList<String>, val listener:MyOnClickListe
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vehicle_make,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vehicle_model,parent,false)
         return MyViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = list[position]
-        holder.apply {
-            vehicleMake.text = item
-        }
-
     }
 
     override fun getItemCount(): Int {
@@ -39,4 +32,13 @@ class VmAdapter(private val list: ArrayList<String>, val listener:MyOnClickListe
     interface MyOnClickListener{
         fun OnClick(position: Int)
     }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val item = list[position]
+        holder.apply {
+            vehicleModel.text = item
+        }
+    }
+
+
 }

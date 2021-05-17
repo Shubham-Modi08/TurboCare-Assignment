@@ -1,26 +1,35 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.shubham.turbocare_assignment.R
 
-class Vmoadapter(private val list: ArrayList<String>, val listener: SelectVehicleModel): RecyclerView.Adapter<Vmoadapter.MyViewHolder>(){
+class VmAdapter(private val list: ArrayList<String>, val listener: MyOnClickListener): RecyclerView.Adapter<VmAdapter.MyViewHolder>(){
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var vehicleModel = itemView.findViewById<TextView>(R.id.vehicle_model)
+        var vehicleMake = itemView.findViewById<TextView>(R.id.vehicle_make)
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
-//                listener.OnClick(position)
+                listener.OnClick(position)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vehicle_model,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vehicle_make,parent,false)
         return MyViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val item = list[position]
+        holder.apply {
+            vehicleMake.text = item
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -30,13 +39,4 @@ class Vmoadapter(private val list: ArrayList<String>, val listener: SelectVehicl
     interface MyOnClickListener{
         fun OnClick(position: Int)
     }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = list[position]
-        holder.apply {
-            vehicleModel.text = item
-        }
-    }
-
-
 }

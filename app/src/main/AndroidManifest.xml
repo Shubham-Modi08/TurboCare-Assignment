@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TurboCareassignment">
-        <activity android:name=".VehicleList"/>
+        <activity android:name=".VehicleDetails"></activity>
+        <activity android:name=".SelectVehicleFuelType" />
+        <activity android:name=".SelectVehicleTransmission" />
+        <activity android:name=".VehicleList" />
         <activity android:name=".SelectVehicleModel" />
         <activity android:name=".SelectVehicleMake" />
         <activity android:name=".MainActivity" />

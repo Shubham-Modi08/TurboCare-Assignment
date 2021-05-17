@@ -11,15 +11,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.shubham.turbocare_assignment.Adapters.Vmoadapter
 
-class SelectVehicleModel : AppCompatActivity() {
+class SelectVehicleModel : AppCompatActivity(),Vmoadapter.MyOnClickListener {
+
 
     private lateinit var title: TextView
     private lateinit var back: ImageView
     private lateinit var rcv: RecyclerView
     private lateinit var type_selected: String
+    private lateinit var vehicleregno:String
     private lateinit var vehicle_make: String
     private lateinit var Vmoadapter: Vmoadapter
+    private val list: ArrayList<String> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +31,7 @@ class SelectVehicleModel : AppCompatActivity() {
         setContentView(R.layout.activity_select_vehicle_model)
         type_selected = intent.getStringExtra("vehicle_type")!!
         vehicle_make = intent.getStringExtra("vehicle_make")!!
+        vehicleregno = intent.getStringExtra("Registration_no")!!
         getData()
         initView()
 
@@ -43,7 +48,7 @@ class SelectVehicleModel : AppCompatActivity() {
 
     private fun getData() {
 
-        val list: ArrayList<String> = ArrayList()
+
         val url = getString(R.string.base_url)+"models?class="+type_selected+"&make="+vehicle_make
         val requestQueue = Volley.newRequestQueue(this)
         val request = JsonArrayRequest(
@@ -65,6 +70,18 @@ class SelectVehicleModel : AppCompatActivity() {
 
     private fun initView() {
         rcv = findViewById(R.id.recycler_view_model)
+    }
+
+    override fun OnClick(position: Int) {
+
+        intent = Intent(applicationContext, SelectVehicleFuelType::class.java)
+        intent.putExtra("vehicle_type", type_selected)
+        intent.putExtra("vehicle_make", list[position])
+        intent.putExtra("Registration_no", vehicleregno)
+        intent.putExtra("vehicle_model", list[position])
+        startActivity(intent)
+
+
     }
 
 }

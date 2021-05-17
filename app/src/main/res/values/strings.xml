@@ -12,4 +12,5 @@
     <string name="vehicle_model">Select Vehicle Model</string>
     <string name="vehicle_list">Vehicle List</string>
     <string name="add_vehicle">Add Vehicle</string>
+    <string name="vehicle_fuel_type">Select Fuel Type</string>
 </resources>
