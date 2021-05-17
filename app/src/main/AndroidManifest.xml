@@ -15,10 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TurboCareassignment">
+        <activity android:name=".activities.MyVehiclesDetail"></activity>
+
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
-
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -28,7 +29,7 @@
             android:value="true" />
 
         <activity
-            android:name=".Activities.MyVehicleDetails"
+            android:name=".activities.MyVehicleDetails"
             android:label="@string/title_activity_my_vehicle_details">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,14 +37,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.VehicleDetails" />
-        <activity android:name=".Activities.SelectVehicleFuelType" />
-        <activity android:name=".Activities.SelectVehicleTransmission" />
-        <activity android:name=".Activities.VehicleList" />
-        <activity android:name=".Activities.SelectVehicleModel" />
-        <activity android:name=".Activities.SelectVehicleMake" />
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.SplashScreen">
+        <activity android:name=".activities.VehicleDetails" />
+        <activity android:name=".activities.SelectVehicleFuelType" />
+        <activity android:name=".activities.SelectVehicleTransmission" />
+        <activity android:name=".activities.VehicleList" />
+        <activity android:name=".activities.SelectVehicleModel" />
+        <activity android:name=".activities.SelectVehicleMake" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

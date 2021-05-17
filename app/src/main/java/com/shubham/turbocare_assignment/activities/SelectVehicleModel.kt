@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment.Activities
+package com.shubham.turbocare_assignment.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shubham.turbocare_assignment.Adapters.Vfadapter
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
+import com.shubham.turbocare_assignment.adapters.Vmoadapter
 import com.shubham.turbocare_assignment.R
 
-class SelectVehicleFuelType : AppCompatActivity(), Vfadapter.MyOnClickListener{
+class SelectVehicleModel : AppCompatActivity(),Vmoadapter.MyOnClickListener {
 
 
     private lateinit var title: TextView
@@ -20,27 +23,22 @@ class SelectVehicleFuelType : AppCompatActivity(), Vfadapter.MyOnClickListener{
     private lateinit var type_selected: String
     private lateinit var vehicleregno:String
     private lateinit var vehicle_make: String
-    private lateinit var vehicle_model: String
-    private lateinit var Vfadapter: Vfadapter
-    private val list: ArrayList<String> =  ArrayList()
-
+    private lateinit var Vmoadapter: Vmoadapter
+    private val list: ArrayList<String> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_vehicle_fuel_type)
-
-
+        setContentView(R.layout.activity_select_vehicle_model)
         type_selected = intent.getStringExtra("vehicle_type")!!
         vehicle_make = intent.getStringExtra("vehicle_make")!!
         vehicleregno = intent.getStringExtra("Registration_no")!!
-        vehicle_model = intent.getStringExtra("vehicle_model")!!
         getData()
         initView()
 
         back= findViewById((R.id.back))
         title = findViewById(R.id.title)
-        title.text = getString(R.string.vehicle_fuel_type)
+        title.text = getString(R.string.vehicle_model)
 
 
         back.setOnClickListener {
@@ -49,37 +47,42 @@ class SelectVehicleFuelType : AppCompatActivity(), Vfadapter.MyOnClickListener{
 
     }
 
-    private fun getData(){
+    private fun getData() {
 
-            list.add("Petrol")
-            list.add("Diesel")
-            list.add("CNG")
-            list.add("Petrol + CNG")
-            list.add("Electric")
-            list.add("Hybrid")
-        Log.d("dataarray", list.toString())
+
+        val url = getString(R.string.base_url)+"models?class="+type_selected+"&make="+vehicle_make
+        val requestQueue = Volley.newRequestQueue(this)
+        val request = JsonArrayRequest(
+            Request.Method.GET, url,null,
+            { response ->
+                Log.d("item",response.toString())
+                for (i in 0 until response.length()){
+                    list.add(response[i].toString())
+                }
+                Vmoadapter = Vmoadapter(list,this)
+                rcv.layoutManager = LinearLayoutManager(this)
+                rcv.adapter = Vmoadapter
+            }, { error ->
+
+            })
+        requestQueue.add(request)
+
     }
 
     private fun initView() {
-        rcv = findViewById(R.id.recycler_view_fuel_type)
-        Vfadapter = Vfadapter(list,this)
-        rcv.layoutManager = LinearLayoutManager(this)
-        rcv.adapter = Vfadapter
-
+        rcv = findViewById(R.id.recycler_view_model)
     }
 
     override fun OnClick(position: Int) {
 
-        intent = Intent(applicationContext, SelectVehicleTransmission::class.java)
+        intent = Intent(applicationContext, SelectVehicleFuelType::class.java)
         intent.putExtra("vehicle_type", type_selected)
         intent.putExtra("vehicle_make", list[position])
         intent.putExtra("Registration_no", vehicleregno)
         intent.putExtra("vehicle_model", list[position])
-        intent.putExtra("vehicle_fuel_type", list[position])
-        Log.d("fuel",list[position])
         startActivity(intent)
+
 
     }
 
 }
-

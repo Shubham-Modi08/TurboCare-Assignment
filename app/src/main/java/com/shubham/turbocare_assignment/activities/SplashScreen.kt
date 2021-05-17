@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment.Activities
+package com.shubham.turbocare_assignment.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

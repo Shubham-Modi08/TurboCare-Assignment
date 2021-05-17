@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment.Activities
+package com.shubham.turbocare_assignment.activities
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
-import com.shubham.turbocare_assignment.Adapters.VtAdapter
+import com.shubham.turbocare_assignment.adapters.VtAdapter
 import com.shubham.turbocare_assignment.R
 import com.shubham.turbocare_assignment.database.VehicleDatabase
 import com.shubham.turbocare_assignment.database.VehicleEntity

@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment.Adapters
+package com.shubham.turbocare_assignment.adapters
 
 import android.view.LayoutInflater
 import android.view.View

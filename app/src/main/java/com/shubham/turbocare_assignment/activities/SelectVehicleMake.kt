@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment.Activities
+package com.shubham.turbocare_assignment.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import com.shubham.turbocare_assignment.Adapters.VmAdapter
+import com.shubham.turbocare_assignment.adapters.VmAdapter
 import com.shubham.turbocare_assignment.R
 
 

@@ -1,10 +1,11 @@
-package com.shubham.turbocare_assignment.Activities
+package com.shubham.turbocare_assignment.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.room.Room
@@ -32,26 +33,31 @@ class VehicleList : AppCompatActivity() {
 
         }
 
+        val result = DBASyncTask(this,1).execute().get()
+        Log.d("result", result.toString())
 
-        class DBASyncTask(context: Context, private val vehicleEntity: VehicleEntity, private val mode:Int) : AsyncTask<Void, Void, Boolean>(){
 
-            private val db = Room.databaseBuilder(context, VehicleDatabase::class.java,"vehicle_details-db").build()
 
-            override fun doInBackground(vararg params: Void?): Boolean {
 
-                return when(mode){
-                    1 -> {
-                        val vehicleEntity :VehicleEntity? = db.getVehicleDao().getMyVehicles(List<VehicleEntity>)
-                        db.close()
-                        vehicleEntity !=null
-                    }
-                    else -> false
+
+
+    }
+    class DBASyncTask(context: Context, private val mode:Int) : AsyncTask<Void, Void, Boolean>(){
+
+        private val db = Room.databaseBuilder(context, VehicleDatabase::class.java,"vehicle_details-db").build()
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+
+            return when(mode){
+                1 -> {
+                    val vehicleEntity:List<VehicleEntity>? = db.getVehicleDao().getMyVehicles()
+                    Log.d("data1",vehicleEntity.toString())
+                    db.close()
+                    vehicleEntity !=null
                 }
+                else -> false
             }
-
         }
-
-
 
     }
 }
