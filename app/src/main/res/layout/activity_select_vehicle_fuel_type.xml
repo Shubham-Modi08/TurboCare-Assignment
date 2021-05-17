@@ -41,14 +41,14 @@
             android:id="@+id/icon_fuel"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_speedometer"
+            android:src="@drawable/ic_fuel"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_fuek_type"
+        android:id="@+id/recycler_view_fuel_type"
         android:layout_below="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -21,9 +21,8 @@ class VehicleList : AppCompatActivity() {
         title.text = getString(R.string.vehicle_list)
 
         addVehicle.setOnClickListener {
-            val i = Intent(this,
-                MainActivity::class.java)
-            startActivity(i)
+            intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
 
         }
 

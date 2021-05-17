@@ -4,13 +4,14 @@
     <string name="back">back</string>
     <string name="enter_vehicle_number">Enter Vehicle Number</string>
     <string name="eg_mh12ab1234">Eg: MH 12 AB 1234</string>
-    <string name="create_profile">Create New Vehicle Profile</string>
+    <string name="create_profile">Add Vehicle Details</string>
     <string name="next">Next</string>
     <string name="_4_wheeler">4 WHEELER</string>
     <string name="_2_wheeler">2 WHEELER</string>
-    <string name="vehicle_make">Select Vehicle Maker</string>
-    <string name="vehicle_model">Select Vehicle Model</string>
-    <string name="vehicle_list">Vehicle List</string>
+    <string name="vehicle_make">Vehicle Maker</string>
+    <string name="vehicle_model">Vehicle Model</string>
+    <string name="vehicle_list">My Vehicles</string>
     <string name="add_vehicle">Add Vehicle</string>
-    <string name="vehicle_fuel_type">Select Fuel Type</string>
+    <string name="vehicle_fuel_type"> Vehicle Fuel Type</string>
+    <string name="vehicle_transmission">Vehicle Transmission</string>
 </resources>

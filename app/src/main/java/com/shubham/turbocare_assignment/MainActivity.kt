@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("vehicle_type", dataselected)
                         startActivity(intent)
                     }
-                    else Toast.makeText(applicationContext, "Please Select 2 or 4 Wheeler ", android.widget.Toast.LENGTH_SHORT).show()
+                    else Toast.makeText(applicationContext, "Please Select 2 or 4 Wheeler", android.widget.Toast.LENGTH_SHORT).show()
 
                 }
         }
