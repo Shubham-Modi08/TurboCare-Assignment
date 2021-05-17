@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shubham.turbocare_assignment">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,14 +15,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TurboCareassignment">
-        <activity android:name=".VehicleDetails"></activity>
-        <activity android:name=".SelectVehicleFuelType" />
-        <activity android:name=".SelectVehicleTransmission" />
-        <activity android:name=".VehicleList" />
-        <activity android:name=".SelectVehicleModel" />
-        <activity android:name=".SelectVehicleMake" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashScreen">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".Activities.MyVehicleDetails"
+            android:label="@string/title_activity_my_vehicle_details">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.VehicleDetails" />
+        <activity android:name=".Activities.SelectVehicleFuelType" />
+        <activity android:name=".Activities.SelectVehicleTransmission" />
+        <activity android:name=".Activities.VehicleList" />
+        <activity android:name=".Activities.SelectVehicleModel" />
+        <activity android:name=".Activities.SelectVehicleMake" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

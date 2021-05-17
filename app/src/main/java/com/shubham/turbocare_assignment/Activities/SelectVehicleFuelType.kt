@@ -1,4 +1,4 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shubham.turbocare_assignment.Adapters.Vfadapter
-import com.shubham.turbocare_assignment.Adapters.Vmoadapter
+import com.shubham.turbocare_assignment.R
 
 class SelectVehicleFuelType : AppCompatActivity(), Vfadapter.MyOnClickListener{
 

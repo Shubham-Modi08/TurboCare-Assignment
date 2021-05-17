@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shubham.turbocare_assignment.R
-import com.shubham.turbocare_assignment.SelectVehicleModel
 
 class Vmoadapter(private val list: ArrayList<String>, val listener: MyOnClickListener): RecyclerView.Adapter<Vmoadapter.MyViewHolder>(){
 

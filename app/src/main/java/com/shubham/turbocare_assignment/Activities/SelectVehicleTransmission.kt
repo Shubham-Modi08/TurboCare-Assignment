@@ -1,6 +1,8 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Activities
 
+import android.content.Context
 import android.content.Intent
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +11,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shubham.turbocare_assignment.Adapters.Vfadapter
+import androidx.room.Room
 import com.shubham.turbocare_assignment.Adapters.VtAdapter
+import com.shubham.turbocare_assignment.R
+import com.shubham.turbocare_assignment.database.VehicleDatabase
+import com.shubham.turbocare_assignment.database.VehicleEntity
 
 class SelectVehicleTransmission : AppCompatActivity(),VtAdapter.MyOnClickListener {
 
@@ -22,6 +27,7 @@ class SelectVehicleTransmission : AppCompatActivity(),VtAdapter.MyOnClickListene
     private lateinit var vehicle_make: String
     private lateinit var vehicle_model: String
     private lateinit var vehicle_fuel_type: String
+    private lateinit var vehicle_transmission: String
     private lateinit var VtAdapter: VtAdapter
     private val list: ArrayList<String> =  ArrayList()
 
@@ -66,13 +72,42 @@ class SelectVehicleTransmission : AppCompatActivity(),VtAdapter.MyOnClickListene
 
     override fun OnClick(position: Int) {
         intent = Intent(applicationContext, VehicleList::class.java)
-        intent.putExtra("vehicle_type", type_selected)
-        intent.putExtra("vehicle_make", list[position])
-        intent.putExtra("Registration_no", vehicleregno)
-        intent.putExtra("vehicle_model", list[position])
-        intent.putExtra("vehicle_fuel_type", list[position])
-        intent.putExtra("vehicle_transmission", list[position])
-        Toast.makeText(applicationContext, "Vehicle Details Saved",Toast.LENGTH_SHORT).show()
+        vehicle_transmission =  list[position]
+
+        val vehicleEntity = VehicleEntity(
+            vehicleregno,vehicle_make,vehicle_model,vehicle_fuel_type,vehicle_transmission
+        )
+
+        val async = DBASyncTask(this,vehicleEntity,1).execute()
+        val result = async.get()
+        Log.d("vehicle_data",result.toString())
+        if(result)
+        {
+            Toast.makeText(applicationContext, "Vehicle Details Saved",Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this,"Some Error Occurred",Toast.LENGTH_SHORT).show()
+        }
+
         startActivity(intent)
+    }
+
+
+    class DBASyncTask(val context: Context, private val VehicleEntity : VehicleEntity, private val mode:Int) : AsyncTask<Void, Void, Boolean>(){
+
+        private val db = Room.databaseBuilder(context, VehicleDatabase::class.java,"vehicle_details-db").fallbackToDestructiveMigration().build()
+
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+
+            when(mode)
+            {
+                1-> {
+                    db.getVehicleDao().insertVehicleDetails(VehicleEntity)
+                    db.close()
+                    return true
+                }
+            }
+            return false
+        }
     }
 }

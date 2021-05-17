@@ -1,19 +1,17 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.WindowManager
 import android.view.animation.Animation
-import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import com.shubham.turbocare_assignment.R
 
 class SplashScreen : AppCompatActivity() {
 
-    val SPLASH_SCREEN_TIME_OUT = 2500
 
     private  lateinit var topAnimation:Animation
     private  lateinit var bottomAnimation:Animation
@@ -33,8 +31,8 @@ class SplashScreen : AppCompatActivity() {
         //animations
 
 
-        topAnimation = AnimationUtils.loadAnimation(this,R.anim.top_animation)
-        bottomAnimation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation)
+        topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation)
+        bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
 
         imageView = findViewById(R.id.logo)
         title = findViewById(R.id.title)

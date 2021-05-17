@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectVehicleMake">
+    tools:context=".Activities.SelectVehicleMake">
 
 
     <RelativeLayout
@@ -52,7 +52,7 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_make"
+        android:id="@+id/recycler_my_vehicle"
         android:layout_below="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

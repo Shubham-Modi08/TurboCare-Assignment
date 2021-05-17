@@ -1,11 +1,11 @@
-package com.shubham.turbocare_assignment
+package com.shubham.turbocare_assignment.Activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.shubham.turbocare_assignment.R
 
 
 class MainActivity : AppCompatActivity() {
