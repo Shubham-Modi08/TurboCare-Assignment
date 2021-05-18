@@ -41,8 +41,8 @@ class VehicleDetails : AppCompatActivity() {
 
         back= findViewById((R.id.back))
         title = findViewById(R.id.registration_no)
-        model_make =findViewById(R.id.model_name)
-        model_name =findViewById(R.id.make_name)
+        model_name =findViewById(R.id.model_name)
+        model_make =findViewById(R.id.make_name)
         model_type =findViewById(R.id.type)
         model_transmission =findViewById(R.id.transmission_name)
 
